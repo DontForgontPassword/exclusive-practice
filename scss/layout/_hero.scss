@@ -1,0 +1,141 @@
+.hero {
+    display: flex;
+
+    &__nav {
+        width: 217px;
+        padding-top: 40px;
+        padding-right: 32px;
+        border-right: 1px solid var(--text-gray);
+    }
+
+    &__nav-list {
+        display: flex;
+        gap: 16px;
+        flex-direction: column;
+    }
+
+
+    &__nav-link {
+        position: relative;
+
+        &--active {
+            display: flex;
+        }
+
+        &--active::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            border: solid black;
+            border-width: 2px 2px 0 0;
+            padding: 3px;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__article {
+        width: 100%;
+
+        background-color: var(--black-color);
+    }
+
+    &__banner {
+        display: flex;
+
+        &-content {
+            padding-top: 58px;
+            padding-left: 64px;
+            height: 344px;
+        }
+
+        &-text {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            color: var(--text-white);
+            font-weight: 400;
+            font-size: 1rem;
+            position: relative;
+            display: flex;
+
+            &::before {
+                content: "";
+                width: 40px;
+                height: 49px;
+                background: url(/img/iphone.png) center no-repeat;
+            }
+        }
+
+        &-title {
+            font-family: var(--inter-regular);
+            margin-top: 20px;
+            color: var(--text-white);
+            font-size: 3rem;
+            line-height: 1.25;
+            letter-spacing: 5px;
+        }
+
+        &-link {
+            position: relative;
+            display: inline-flex;
+            color: var(--text-white);
+            margin-top: 22px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                top: 100%;
+                background: var(--text-white);
+            }
+
+            &::after {
+                content: "";
+                align-self: center;
+                position: absolute;
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                background-image: url(/img/arrow.svg);
+                background-size: contain;
+                background-repeat: no-repeat;
+                left: 110%;
+            }
+        }
+    }
+
+    &__select {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 12px;
+
+        &-item {
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-gray);
+            border-radius: 50%;
+
+            &--active {
+                @include flex-center(true);
+                background-color: var(--text-white);
+
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    background-color: var(--secondary-coral);
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
